@@ -1,0 +1,5542 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>
+الرعاية القلبية الحثيثة وقسطرة القلب - مستشفى الطفيلة الحكومي
+</title>
+
+<link rel="manifest" href="manifest.json">
+
+<meta name="theme-color" content="#0ea5e9">
+
+<link rel="apple-touch-icon" href="icon-192.png">
+<style>
+
+/* =========================================================
+   الألوان الأساسية
+========================================================= */
+
+:root{
+
+    --primary:#087f8c;
+
+    --primary-dark:#045b66;
+
+    --secondary:#0ea5a8;
+
+    --blue:#1261a0;
+
+    --light:#eef9fa;
+
+    --lighter:#f7fcfd;
+
+    --white:#ffffff;
+
+    --text:#17323a;
+
+    --muted:#70858c;
+
+    --border:#d8e8eb;
+
+    --danger:#d62839;
+
+    --danger-dark:#a91f2c;
+
+    --success:#159957;
+
+    --warning:#f59e0b;
+
+    --shadow:
+        0 12px 35px rgba(8,79,92,.10);
+
+    --radius:18px;
+
+}
+
+/* =====================================================
+   نافذة تثبيت التطبيق
+===================================================== */
+
+.install-modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(3, 25, 45, 0.78);
+
+    backdrop-filter:
+        blur(8px);
+
+    -webkit-backdrop-filter:
+        blur(8px);
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 99999;
+
+    padding: 20px;
+
+}
+
+
+.install-modal.show {
+
+    display: flex;
+
+}
+
+
+.install-box {
+
+    width: 100%;
+
+    max-width: 400px;
+
+    background: #ffffff;
+
+    border-radius: 26px;
+
+    padding: 30px 24px;
+
+    text-align: center;
+
+    box-shadow:
+        0 25px 70px
+        rgba(0,0,0,0.35);
+
+    animation:
+        installPopup 0.35s ease;
+
+}
+
+
+@keyframes installPopup {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(.95);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+.install-icon {
+
+    width: 78px;
+
+    height: 78px;
+
+    margin:
+        0 auto 18px;
+
+    border-radius: 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 40px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e0f7ff,
+            #bae6fd
+        );
+
+    box-shadow:
+        0 10px 25px
+        rgba(14,165,233,.20);
+
+}
+
+
+.install-box h2 {
+
+    margin: 0 0 12px;
+
+    color: #073b5c;
+
+    font-size: 25px;
+
+    font-weight: 800;
+
+}
+
+
+.install-box p {
+
+    margin: 0 auto 24px;
+
+    color: #64748b;
+
+    line-height: 1.8;
+
+    font-size: 15px;
+
+}
+
+
+.install-main-btn {
+
+    width: 100%;
+
+    border: none;
+
+    border-radius: 15px;
+
+    padding: 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0284c7,
+            #0ea5e9
+        );
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px
+        rgba(14,165,233,.30);
+
+}
+
+
+.install-main-btn:active {
+
+    transform: scale(.98);
+
+}
+
+
+.install-later-btn {
+
+    margin-top: 12px;
+
+    width: 100%;
+
+    padding: 12px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #64748b;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+  }
+/* =========================================================
+   الأساسيات
+========================================================= */
+
+*{
+
+    box-sizing:border-box;
+
+    margin:0;
+
+    padding:0;
+
+}
+
+
+body{
+
+    font-family:
+        Tahoma,
+        Arial,
+        sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef9fa 0%,
+            #f7fbfd 45%,
+            #edf7fb 100%
+        );
+
+    color:var(--text);
+
+    min-height:100vh;
+
+}
+
+
+button{
+
+    border:0;
+
+    cursor:pointer;
+
+    font-family:inherit;
+
+}
+
+
+input,
+textarea{
+
+    font-family:inherit;
+
+}
+
+
+/* =========================================================
+   الهيدر
+========================================================= */
+
+.header{
+
+    background:
+        linear-gradient(
+            135deg,
+            #045b66,
+            #087f8c 55%,
+            #1261a0
+        );
+
+    color:white;
+
+    padding:22px 25px;
+
+    box-shadow:
+        0 5px 25px rgba(0,70,80,.22);
+
+    position:sticky;
+
+    top:0;
+
+    z-index:100;
+
+}
+
+
+.header-inner{
+
+    max-width:1250px;
+
+    margin:auto;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+}
+
+
+.brand{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+
+.logo{
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:18px;
+
+    background:
+        rgba(255,255,255,.15);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:30px;
+
+    border:
+        1px solid rgba(255,255,255,.25);
+
+}
+
+
+.brand h1{
+
+    font-size:21px;
+
+    margin-bottom:5px;
+
+}
+
+
+.brand p{
+
+    font-size:12px;
+
+    opacity:.82;
+
+}
+
+
+/* =========================================================
+   أزرار الهيدر
+========================================================= */
+
+.header-actions{
+
+    display:flex;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+}
+
+
+.nav-btn{
+
+    background:
+        rgba(255,255,255,.14);
+
+    border:
+        1px solid rgba(255,255,255,.22);
+
+    color:white;
+
+    padding:11px 17px;
+
+    border-radius:12px;
+
+    transition:.2s;
+
+}
+
+
+.nav-btn:hover{
+
+    background:
+        rgba(255,255,255,.25);
+
+}
+
+
+.emergency-btn{
+
+    background:var(--danger);
+
+    color:white;
+
+    padding:11px 18px;
+
+    border-radius:12px;
+
+    font-weight:bold;
+
+    box-shadow:
+        0 5px 15px rgba(214,40,57,.3);
+
+}
+
+
+.emergency-btn:hover{
+
+    background:var(--danger-dark);
+
+}
+
+
+/* =========================================================
+   المحتوى
+========================================================= */
+
+.container{
+
+    max-width:1250px;
+
+    margin:30px auto;
+
+    padding:
+        0 18px 60px;
+
+}
+
+
+/* =========================================================
+   الأقسام
+========================================================= */
+
+.section{
+
+    display:none;
+
+}
+
+
+.section.active{
+
+    display:block;
+
+}
+
+
+.section-title{
+
+    margin-bottom:20px;
+
+}
+
+
+.section-title h2{
+
+    font-size:25px;
+
+    color:var(--primary-dark);
+
+}
+
+
+.section-title p{
+
+    margin-top:6px;
+
+    color:var(--muted);
+
+}
+
+
+/* =========================================================
+   المرضى
+========================================================= */
+
+.patient-list{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fill,
+            minmax(350px,1fr)
+        );
+
+    gap:18px;
+
+}
+
+
+.empty{
+
+    background:white;
+
+    border:
+        1px dashed var(--border);
+
+    border-radius:20px;
+
+    padding:50px 20px;
+
+    text-align:center;
+
+    color:var(--muted);
+
+    grid-column:1/-1;
+
+}
+
+
+.patient-card{
+
+    position:relative;
+
+    background:white;
+
+    border-radius:var(--radius);
+
+    border:
+        1px solid var(--border);
+
+    box-shadow:var(--shadow);
+
+    overflow:hidden;
+
+    transition:.2s;
+
+}
+
+
+.patient-card:hover{
+
+    transform:translateY(-3px);
+
+}
+
+
+.patient-head{
+
+    padding:18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #effafa,
+            #f5fbff
+        );
+
+    border-bottom:
+        1px solid var(--border);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:12px;
+
+}
+
+
+.patient-name{
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    color:var(--primary-dark);
+
+}
+
+
+.patient-age{
+
+    font-size:13px;
+
+    color:var(--muted);
+
+    margin-top:4px;
+
+}
+
+
+.status{
+
+    padding:6px 10px;
+
+    border-radius:20px;
+
+    font-size:11px;
+
+    font-weight:bold;
+
+    white-space:nowrap;
+
+}
+
+
+.status.pending{
+
+    background:#fff5dc;
+
+    color:#9a6500;
+
+}
+
+
+.status.approved{
+
+    background:#e6f8ed;
+
+    color:#11763f;
+
+}
+
+
+.status.rejected{
+
+    background:#fde8eb;
+
+    color:#b51f31;
+
+}
+
+
+.patient-body{
+
+    padding:18px;
+
+}
+
+
+.info-row{
+
+    margin-bottom:14px;
+
+}
+
+
+.info-label{
+
+    font-size:11px;
+
+    color:var(--muted);
+
+    margin-bottom:5px;
+
+    font-weight:bold;
+
+}
+
+
+.info-value{
+
+    font-size:14px;
+
+    line-height:1.7;
+
+}
+
+
+/* =========================================================
+   العلامات الحيوية
+========================================================= */
+
+.vitals{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:7px;
+
+}
+
+
+.vital{
+
+    padding:10px 5px;
+
+    text-align:center;
+
+    background:var(--light);
+
+    border-radius:10px;
+
+}
+
+
+.vital strong{
+
+    display:block;
+
+    font-size:16px;
+
+    color:var(--primary-dark);
+
+}
+
+
+.vital span{
+
+    font-size:10px;
+
+    color:var(--muted);
+
+}
+
+
+/* =========================================================
+   أزرار المريض
+========================================================= */
+
+.patient-edit-corner{
+    position:absolute;
+    top:10px;
+    left:10px;
+    z-index:3;
+    width:auto;
+    padding:7px 10px;
+    border-radius:9px;
+    background:#fff7df;
+    color:#8a5a00;
+    font-size:12px;
+    font-weight:bold;
+    border:1px solid #f4df9d;
+}
+
+.patient-edit-corner:hover{
+    background:#ffefbd;
+}
+
+.request-delete-btn{
+    background:#fff0f1;
+    color:var(--danger);
+}
+
+.request-delete-btn:hover{
+    background:#ffe1e4;
+}
+
+.request-box{
+    background:#fff;
+    border:1px solid var(--border);
+    border-right:5px solid var(--warning);
+    border-radius:16px;
+    padding:16px;
+    margin-bottom:12px;
+    box-shadow:var(--shadow);
+}
+
+.request-box h4{
+    color:var(--primary-dark);
+    margin-bottom:7px;
+}
+
+.request-meta{
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.7;
+}
+
+.request-actions{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-top:12px;
+}
+
+.request-approve{
+    background:#e8f8ee;
+    color:#11763f;
+    padding:9px 14px;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+.request-reject{
+    background:#fff0f1;
+    color:var(--danger);
+    padding:9px 14px;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+.edit-request-preview{
+    background:#f7fcfd;
+    border:1px dashed var(--border);
+    border-radius:12px;
+    padding:12px;
+    margin-top:10px;
+    font-size:13px;
+    line-height:1.8;
+}
+
+/* =========================================================
+   أزرار المريض
+========================================================= */
+
+.patient-actions{
+
+    padding:14px 18px;
+
+    display:flex;
+
+    gap:8px;
+
+    border-top:
+        1px solid var(--border);
+
+}
+
+
+.action-btn{
+
+    width:100%;
+
+    padding:10px;
+
+    border-radius:10px;
+
+    background:#edf7f8;
+
+    color:var(--primary-dark);
+
+    font-weight:bold;
+
+}
+
+
+.action-btn:hover{
+
+    background:#dceff1;
+
+}
+
+
+.share-btn{
+
+    background:#e8f1fb;
+
+    color:#1261a0;
+
+}
+
+
+/* =========================================================
+   نموذج إضافة مريض
+========================================================= */
+
+.form-card{
+
+    background:white;
+
+    border-radius:22px;
+
+    padding:25px;
+
+    box-shadow:var(--shadow);
+
+    border:
+        1px solid var(--border);
+
+}
+
+
+.form-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:18px;
+
+}
+
+
+.full{
+
+    grid-column:1/-1;
+
+}
+
+
+.field{
+
+    position:relative;
+
+}
+
+
+label{
+
+    display:block;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    margin-bottom:8px;
+
+    color:var(--text);
+
+}
+
+
+input,
+textarea{
+
+    width:100%;
+
+    border:
+        1px solid var(--border);
+
+    background:#fbfeff;
+
+    border-radius:12px;
+
+    padding:13px;
+
+    outline:none;
+
+    color:var(--text);
+
+    transition:.2s;
+
+}
+
+
+input:focus,
+textarea:focus{
+
+    border-color:
+        var(--secondary);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(14,165,168,.10);
+
+}
+
+
+textarea{
+
+    min-height:110px;
+
+    resize:vertical;
+
+}
+
+
+/* =========================================================
+   العلامات الحيوية داخل النموذج
+========================================================= */
+
+.vitals-form{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:10px;
+
+}
+
+
+.vital-input{
+
+    position:relative;
+
+}
+
+
+.vital-input label{
+
+    margin-bottom:7px;
+
+}
+
+
+/* =========================================================
+   القوائم المنسدلة
+========================================================= */
+
+.dropdown{
+
+    position:relative;
+
+}
+
+
+.dropdown-toggle{
+
+    width:100%;
+
+    text-align:right;
+
+    background:#fbfeff;
+
+    border:
+        1px solid var(--border);
+
+    padding:13px;
+
+    border-radius:12px;
+
+    color:var(--text);
+
+    position:relative;
+
+}
+
+
+.dropdown-toggle::after{
+
+    content:"⌄";
+
+    position:absolute;
+
+    left:15px;
+
+    font-size:18px;
+
+    top:9px;
+
+    color:var(--primary);
+
+}
+
+
+.dropdown-menu{
+
+    display:none;
+
+    position:absolute;
+
+    top:
+        calc(100% + 7px);
+
+    right:0;
+
+    left:0;
+
+    background:white;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:14px;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.12);
+
+    padding:7px;
+
+    z-index:20;
+
+}
+
+
+.dropdown.open .dropdown-menu{
+
+    display:block;
+
+}
+
+
+.dropdown-item{
+
+    padding:11px;
+
+    border-radius:9px;
+
+    cursor:pointer;
+
+    font-size:13px;
+
+}
+
+
+.dropdown-item:hover{
+
+    background:var(--light);
+
+}
+
+
+.custom-add{
+
+    display:flex;
+
+    gap:7px;
+
+    padding:8px;
+
+    border-top:
+        1px solid var(--border);
+
+    margin-top:5px;
+
+}
+
+
+.custom-add input{
+
+    padding:9px;
+
+}
+
+
+.add-btn{
+
+    width:42px;
+
+    background:var(--primary);
+
+    color:white;
+
+    border-radius:9px;
+
+    font-size:20px;
+
+}
+
+
+/* =========================================================
+   العناصر المختارة
+========================================================= */
+
+.selected-items{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:7px;
+
+    margin-top:10px;
+
+}
+
+
+.chip{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    background:#e9f8f8;
+
+    color:var(--primary-dark);
+
+    padding:7px 10px;
+
+    border-radius:20px;
+
+    font-size:11px;
+
+}
+
+
+.chip button{
+
+    background:none;
+
+    color:var(--danger);
+
+    font-size:14px;
+
+}
+
+
+/* =========================================================
+   زر الحفظ
+========================================================= */
+
+.save-area{
+
+    margin-top:22px;
+
+    display:flex;
+
+    justify-content:flex-start;
+
+}
+
+
+.save-btn{
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--blue)
+        );
+
+    color:white;
+
+    padding:15px 35px;
+
+    border-radius:13px;
+
+    font-weight:bold;
+
+    font-size:15px;
+
+    box-shadow:
+        0 8px 20px
+        rgba(8,127,140,.25);
+
+}
+
+
+.save-btn:hover{
+
+    transform:translateY(-2px);
+
+}
+
+
+/* =========================================================
+   الإدارة
+========================================================= */
+
+.admin-login{
+
+    max-width:500px;
+
+    margin:auto;
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    box-shadow:var(--shadow);
+
+    border:
+        1px solid var(--border);
+
+}
+
+
+.admin-icon{
+
+    text-align:center;
+
+    font-size:48px;
+
+    margin-bottom:15px;
+
+}
+
+
+.admin-login h3{
+
+    text-align:center;
+
+    margin-bottom:20px;
+
+    color:var(--primary-dark);
+
+}
+
+
+.admin-panel{
+
+    display:none;
+
+}
+
+
+.admin-panel.active{
+
+    display:block;
+
+}
+
+
+.admin-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+
+.logout{
+
+    background:#fff0f1;
+
+    color:var(--danger);
+
+    padding:10px 15px;
+
+    border-radius:10px;
+
+}
+
+
+/* =========================================================
+   بطاقة الإدارة
+========================================================= */
+
+.admin-patient{
+
+    background:white;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:18px;
+
+    padding:20px;
+
+    margin-bottom:15px;
+
+    box-shadow:var(--shadow);
+
+}
+
+
+.admin-patient-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+    margin-bottom:15px;
+
+}
+
+
+.admin-buttons{
+
+    display:flex;
+
+    gap:8px;
+
+    margin-top:15px;
+
+    flex-wrap:wrap;
+
+}
+
+
+.approve{
+
+    background:#e8f8ee;
+
+    color:#11763f;
+
+    padding:10px 16px;
+
+    border-radius:10px;
+
+    font-weight:bold;
+
+}
+
+
+.reject{
+
+    background:#fff0f1;
+
+    color:var(--danger);
+
+    padding:10px 16px;
+
+    border-radius:10px;
+
+    font-weight:bold;
+
+}
+
+
+.admin-delete{
+
+    background:#fff0f1;
+
+    color:#d62839;
+
+    padding:10px 16px;
+
+    border-radius:10px;
+
+    font-weight:bold;
+
+}
+
+
+/* =========================================================
+   النوافذ
+========================================================= */
+
+.modal{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+        rgba(3,35,42,.65);
+
+    z-index:500;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+}
+
+
+.modal.active{
+
+    display:flex;
+
+}
+
+
+.modal-box{
+
+    background:white;
+
+    width:
+        min(550px,100%);
+
+    max-height:90vh;
+
+    overflow:auto;
+
+    border-radius:22px;
+
+    padding:25px;
+
+    box-shadow:
+        0 25px 70px
+        rgba(0,0,0,.25);
+
+}
+
+
+/* =========================================================
+   نافذة الطوارئ
+========================================================= */
+
+.emergency-modal .modal-box{
+
+    text-align:center;
+
+    border-top:
+        7px solid var(--danger);
+
+}
+
+
+.emergency-icon{
+
+    font-size:60px;
+
+    margin-bottom:15px;
+
+}
+
+
+.emergency-text{
+
+    line-height:1.8;
+
+    color:var(--muted);
+
+    margin-bottom:20px;
+
+}
+
+
+.emergency-confirm{
+
+    background:var(--danger);
+
+    color:white;
+
+    padding:13px 25px;
+
+    border-radius:12px;
+
+    font-weight:bold;
+
+}
+
+
+.cancel-btn{
+
+    background:#edf2f3;
+
+    color:var(--text);
+
+    padding:13px 25px;
+
+    border-radius:12px;
+
+    margin-right:8px;
+
+}
+
+
+/* =========================================================
+   رسالة التنبيه
+========================================================= */
+
+.toast{
+
+    position:fixed;
+
+    bottom:25px;
+
+    right:25px;
+
+    background:#17323a;
+
+    color:white;
+
+    padding:15px 20px;
+
+    border-radius:13px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.2);
+
+    transform:
+        translateY(120px);
+
+    opacity:0;
+
+    transition:.3s;
+
+    z-index:1000;
+
+    max-width:400px;
+
+}
+
+
+.toast.show{
+
+    transform:
+        translateY(0);
+
+    opacity:1;
+
+}
+
+
+.toast.success{
+
+    background:var(--success);
+
+}
+
+
+.toast.error{
+
+    background:var(--danger);
+
+}
+
+
+/* =========================================================
+   الفوتر
+========================================================= */
+
+.footer{
+
+    text-align:center;
+
+    color:var(--muted);
+
+    font-size:11px;
+
+    margin-top:30px;
+
+}
+
+
+/* =========================================================
+   الهاتف
+========================================================= */
+
+@media(max-width:800px){
+
+    .header-inner{
+
+        align-items:flex-start;
+
+        flex-direction:column;
+
+    }
+
+
+    .header-actions{
+
+        width:100%;
+
+        display:grid;
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+
+    .header-actions button{
+
+        width:100%;
+
+    }
+
+
+    .form-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .full{
+
+        grid-column:auto;
+
+    }
+
+
+    .vitals-form{
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+
+    .patient-list{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .brand h1{
+
+        font-size:17px;
+
+    }
+
+}
+
+
+@media(max-width:420px){
+
+    .header{
+
+        padding:18px 15px;
+
+    }
+
+
+    .container{
+
+        padding-left:12px;
+
+        padding-right:12px;
+
+    }
+
+
+    .header-actions{
+
+        gap:8px;
+
+    }
+
+
+    .nav-btn,
+    .emergency-btn{
+
+        padding:10px 8px;
+
+        font-size:13px;
+
+    }
+
+
+    .vitals{
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+
+    .patient-actions{
+
+        flex-wrap:wrap;
+
+    }
+
+
+    .form-card{
+
+        padding:18px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     الهيدر
+========================================================= -->
+
+<header class="header">
+
+    <div class="header-inner">
+
+
+        <div class="brand">
+
+            <div class="logo">
+                ❤
+            </div>
+
+
+            <div>
+
+                <h1>
+                    الرعاية القلبية الحثيثة وقسطرة القلب
+                </h1>
+
+                <p>
+                    مستشفى الطفيلة الحكومي
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="header-actions">
+
+
+            <button
+                class="nav-btn"
+                onclick="showSection('patients')">
+
+                👥 المرضى
+
+            </button>
+
+
+            <button
+                class="nav-btn"
+                onclick="showSection('add')">
+
+                ＋ إضافة مريض
+
+            </button>
+
+
+            <button
+                class="nav-btn"
+                onclick="showSection('admin')">
+
+                ⚙ الإدارة
+
+            </button>
+
+
+            <button
+                class="emergency-btn"
+                onclick="openEmergency()">
+
+                🚨 حالة طارئة
+
+            </button>
+
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     المحتوى الرئيسي
+========================================================= -->
+
+<main class="container">
+
+
+    <!-- =====================================================
+         المرضى
+    ====================================================== -->
+
+    <section
+        id="patients"
+        class="section active">
+
+
+        <div class="section-title">
+
+            <h2>
+                تصفح المرضى 👥
+            </h2>
+
+            <p>
+                المرضى المسجلون في قسم الرعاية القلبية الحثيثة وقسطرة القلب
+            </p>
+
+        </div>
+
+
+        <div
+            id="patientList"
+            class="patient-list">
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         إضافة مريض
+    ====================================================== -->
+
+    <section
+        id="add"
+        class="section">
+
+
+        <div class="section-title">
+
+            <h2>
+                إضافة مريض
+            </h2>
+
+            <p>
+                أدخل معلومات المريض والتجهيزات المطلوبة
+                قبل إرسال الطلب للإدارة
+            </p>
+
+        </div>
+
+
+        <div class="form-card">
+
+
+            <div class="form-grid">
+
+
+                <!-- اسم المريض -->
+
+                <div class="field">
+
+                    <label>
+                        اسم المريض
+                    </label>
+
+                    <input
+                        id="patientName"
+                        type="text"
+                        placeholder="أدخل اسم المريض">
+
+                </div>
+
+
+                <!-- العمر -->
+
+                <div class="field">
+
+                    <label>
+                        عمر المريض
+                    </label>
+
+                    <input
+                        id="patientAge"
+                        type="number"
+                        min="0"
+                        max="120"
+                        placeholder="العمر">
+
+                </div>
+
+
+                <!-- التشخيص -->
+
+                <div class="field full">
+
+                    <label>
+                        تشخيص المريض
+                    </label>
+
+                    <input
+                        id="diagnosis"
+                        type="text"
+                        placeholder="أدخل التشخيص">
+
+                </div>
+
+
+
+                <!-- العلامات الحيوية -->
+
+                <div class="field full">
+
+                    <label>
+                        العلامات الحيوية
+                    </label>
+
+
+                    <div class="vitals-form">
+
+
+                        <div class="vital-input">
+
+                            <label>
+                                BP
+                            </label>
+
+                            <input
+                                id="bp"
+                                type="text"
+                                                              placeholder="120/80">
+
+                        </div>
+
+
+                        <div class="vital-input">
+
+                            <label>
+                                HR
+                            </label>
+
+                            <input
+                                id="hr"
+                                type="text"
+                                placeholder="80">
+
+                        </div>
+
+
+                        <div class="vital-input">
+
+                            <label>
+                                O₂
+                            </label>
+
+                            <input
+                                id="o2"
+                                type="text"
+                                placeholder="98%">
+
+                        </div>
+
+
+                        <div class="vital-input">
+
+                            <label>
+                                RR
+                            </label>
+
+                            <input
+                                id="rr"
+                                type="text"
+                                placeholder="18">
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                <!-- ==============================
+                     الأدوية الفعالة
+                =============================== -->
+
+                <div class="field full">
+
+                    <label>
+                        الأدوية الفعالة
+                    </label>
+
+
+                    <div
+                        class="dropdown"
+                        id="medDropdown">
+
+
+                        <button
+                            type="button"
+                            class="dropdown-toggle"
+                            onclick="toggleDropdown('medDropdown')">
+
+                            اختر الأدوية
+
+                        </button>
+
+
+                        <div class="dropdown-menu">
+
+
+                            <div
+                                class="dropdown-item"
+                                onclick="addMedication('Plavix 300mg stat')">
+
+                                Plavix 300mg stat
+
+                            </div>
+
+
+                            <div
+                                class="dropdown-item"
+                                onclick="addMedication('ASA 100mg 1*1')">
+
+                                ASA 100mg 1*1
+
+                            </div>
+
+
+                            <div
+                                class="dropdown-item"
+                                onclick="addMedication('Aditor 40mg 1*1')">
+
+                                Aditor 40mg 1*1
+
+                            </div>
+
+
+                            <div
+                                class="dropdown-item"
+                                onclick="addMedication('Plavix 75mg 1*1')">
+
+                                Plavix 75mg 1*1
+
+                            </div>
+
+
+                            <div class="custom-add">
+
+                                <input
+                                    id="customMedication"
+                                    type="text"
+                                    placeholder="إضافة دواء آخر">
+
+
+                                <button
+                                    type="button"
+                                    class="add-btn"
+                                    onclick="addCustomMedication()">
+
+                                    +
+
+                                </button>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="medicationChips"
+                        class="selected-items">
+                    </div>
+
+                </div>
+
+
+                <!-- ==============================
+                     تجهيزات القسطرة
+                =============================== -->
+
+                <div class="field full">
+
+                    <label>
+                        تجهيزات القسطرة
+                    </label>
+
+
+                    <div
+                        class="dropdown"
+                        id="equipDropdown">
+
+
+                        <button
+                            type="button"
+                            class="dropdown-toggle"
+                            onclick="toggleDropdown('equipDropdown')">
+
+                            اختر التجهيزات
+
+                        </button>
+
+
+                        <div class="dropdown-menu">
+
+
+                            <div
+                                class="dropdown-item"
+                                onclick="addEquipment('ECG')">
+
+                                ECG
+
+                            </div>
+
+
+                            <div
+                                class="dropdown-item"
+                                onclick="addEquipment('ECHO')">
+
+                                ECHO
+
+                            </div>
+
+
+                            <div
+                                class="dropdown-item"
+                                onclick="addEquipment('Full Lab')">
+
+                                Full Lab
+
+                            </div>
+
+
+                            <div
+                                class="dropdown-item"
+                                onclick="addEquipment('Consent Form')">
+
+                                Consent Form
+
+                            </div>
+
+
+                            <div
+                                class="dropdown-item"
+                                onclick="addEquipment('Shaving')">
+
+                                Shaving
+
+                            </div>
+
+
+                            <div class="custom-add">
+
+                                <input
+                                    id="customEquipment"
+                                    type="text"
+                                    placeholder="إضافة تجهيز آخر">
+
+
+                                <button
+                                    type="button"
+                                    class="add-btn"
+                                    onclick="addCustomEquipment()">
+
+                                    +
+
+                                </button>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="equipmentChips"
+                        class="selected-items">
+                    </div>
+
+                </div>
+
+
+                <!-- ==============================
+                     الملاحظات
+                =============================== -->
+
+                <div class="field full">
+
+                    <label>
+                        ملاحظات إضافية
+                    </label>
+
+
+                    <textarea
+                        id="notes"
+                        placeholder="أضف أي ملاحظة عن المريض..."></textarea>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="save-area">
+
+                <button
+                    class="save-btn"
+                    onclick="savePatient()">
+
+                    💾 حفظ المريض وإرسال الطلب للإدارة
+
+                </button>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         قسم الإدارة
+    =============================== -->
+
+    <section
+        id="admin"
+        class="section">
+
+
+        <div class="section-title">
+
+            <h2>
+                الإدارة ⚙
+            </h2>
+
+            <p>
+                إدارة المرضى والطلبات المرسلة من الكادر
+            </p>
+
+        </div>
+
+
+        <!-- تسجيل الدخول -->
+
+        <div
+            id="adminLogin"
+            class="admin-login">
+
+
+            <div class="admin-icon">
+                🔐
+            </div>
+
+
+            <h3>
+                دخول الإدارة
+            </h3>
+
+
+            <label>
+                كلمة مرور الإدارة
+            </label>
+
+
+            <input
+                id="adminPassword"
+                type="password"
+                placeholder="أدخل كلمة مرور الإدارة">
+
+
+            <button
+                class="save-btn"
+                style="width:100%;margin-top:15px;"
+                onclick="adminLogin()">
+
+                دخول الإدارة
+
+            </button>
+
+
+        </div>
+
+
+        <!-- لوحة الإدارة -->
+
+        <div
+            id="adminPanel"
+            class="admin-panel">
+
+
+            <div class="admin-top">
+
+
+                <div>
+
+                    <h2>
+                        لوحة الإدارة
+                    </h2>
+
+                    <p
+                        style="
+                            color:var(--muted);
+                            font-size:13px;
+                            margin-top:5px;
+                        ">
+
+                        مراجعة المرضى وقبولهم أو رفضهم أو حذفهم
+
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="logout"
+                    onclick="adminLogout()">
+
+                    تسجيل الخروج
+
+                </button>
+
+
+            </div>
+
+
+            <div
+                id="adminEditRequests"
+                style="margin-bottom:25px;">
+            </div>
+
+            <div
+                id="adminDeleteRequests"
+                style="margin-bottom:25px;">
+            </div>
+
+            <div id="adminPatients"></div>
+
+
+        </div>
+
+    </section>
+
+
+    <div class="footer">
+
+        الرعاية القلبية الحثيثة وقسطرة القلب
+        —
+        مستشفى الطفيلة الحكومي
+
+    </div>
+
+
+</main>
+
+
+<!-- ======================================================
+     نافذة تأكيد حالة الطوارئ
+======================================================= -->
+
+<div
+    id="emergencyModal"
+    class="modal emergency-modal">
+
+
+    <div class="modal-box">
+
+
+        <div class="emergency-icon">
+            🚨
+        </div>
+
+
+        <h2>
+            حالة طارئة
+        </h2>
+
+
+        <p class="emergency-text">
+
+            هل أنت متأكد من وجود حالة طارئة؟
+
+            <br>
+
+            سيتم فتح مجموعة الطوارئ على واتساب.
+
+        </p>
+
+
+        <button
+            class="emergency-confirm"
+            onclick="sendEmergency()">
+
+            نعم، توجد حالة طارئة 🚨
+
+        </button>
+
+
+        <button
+            class="cancel-btn"
+            onclick="closeEmergency()">
+
+            إلغاء
+
+        </button>
+
+
+    </div>
+
+</div>
+
+
+<!-- ======================================================
+     نافذة طلب تعديل بيانات المريض
+======================================================= -->
+
+<div
+    id="editPatientModal"
+    class="modal">
+
+    <div
+        class="modal-box"
+        style="max-width:650px;">
+
+        <h2 style="color:var(--primary-dark); margin-bottom:8px;">
+            ✏️ طلب تعديل بيانات المريض
+        </h2>
+
+        <p style="color:var(--muted); line-height:1.7; margin-bottom:18px;">
+            التعديلات لن تظهر للمستخدمين إلا بعد موافقة الإدارة.
+        </p>
+
+        <input type="hidden" id="editPatientId">
+
+        <div class="form-grid">
+
+            <div class="field">
+                <label>اسم المريض</label>
+                <input id="editPatientName" type="text">
+            </div>
+
+            <div class="field">
+                <label>العمر</label>
+                <input id="editPatientAge" type="text">
+            </div>
+
+            <div class="field full">
+                <label>التشخيص</label>
+                <input id="editPatientDiagnosis" type="text">
+            </div>
+
+            <div class="vital-input">
+                <label>ضغط الدم BP</label>
+                <input id="editPatientBp" type="text">
+            </div>
+
+            <div class="vital-input">
+                <label>النبض HR</label>
+                <input id="editPatientHr" type="text">
+            </div>
+
+            <div class="vital-input">
+                <label>الأكسجين O₂</label>
+                <input id="editPatientO2" type="text">
+            </div>
+
+            <div class="vital-input">
+                <label>التنفس RR</label>
+                <input id="editPatientRr" type="text">
+            </div>
+
+            <div class="field full">
+                <label>الأدوية الفعالة — افصل بينها بفاصلة</label>
+                <input id="editPatientMedications" type="text">
+            </div>
+
+            <div class="field full">
+                <label>تجهيزات القسطرة — افصل بينها بفاصلة</label>
+                <input id="editPatientEquipment" type="text">
+            </div>
+
+            <div class="field full">
+                <label>الملاحظات</label>
+                <textarea id="editPatientNotes"></textarea>
+            </div>
+
+        </div>
+
+        <div style="display:flex; gap:10px; margin-top:18px;">
+
+            <button
+                type="button"
+                class="save-btn"
+                style="flex:1;"
+                onclick="submitPatientEditRequest()">
+                📤 إرسال طلب التعديل للإدارة
+            </button>
+
+            <button
+                type="button"
+                class="cancel-btn"
+                style="flex:1; margin-right:0;"
+                onclick="closeEditPatientModal()">
+                إلغاء
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ======================================================
+     نافذة تأكيد طلب حذف المريض
+======================================================= -->
+
+<div
+    id="deleteRequestModal"
+    class="modal">
+
+    <div class="modal-box" style="text-align:center; max-width:430px;">
+
+        <div style="font-size:55px; margin-bottom:12px;">🗑️</div>
+
+        <h2 style="color:#d62839;">
+            طلب حذف المريض
+        </h2>
+
+        <p style="color:var(--muted); margin:15px 0 25px; line-height:1.8;">
+            سيتم إرسال طلب حذف هذا المريض إلى الإدارة.
+            <br>
+            لن يتم حذف المريض إلا بعد موافقة الإدارة.
+        </p>
+
+        <input type="hidden" id="deleteRequestPatientId">
+
+        <div style="display:flex; gap:10px;">
+
+            <button
+                type="button"
+                onclick="submitPatientDeleteRequest()"
+                style="flex:1; background:#d62839; color:white; padding:13px; border-radius:12px; font-weight:bold;">
+                📤 إرسال الطلب
+            </button>
+
+            <button
+                type="button"
+                onclick="closeDeleteRequestModal()"
+                style="flex:1; background:#edf2f3; color:#17323a; padding:13px; border-radius:12px; font-weight:bold;">
+                إلغاء
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ======================================================
+     نافذة تأكيد حذف المريض من الإدارة
+======================================================= -->
+
+<!-- ======================================================
+     نافذة تأكيد حذف المريض
+======================================================= -->
+
+<div
+    id="deleteModal"
+    class="modal">
+
+
+    <div
+        class="modal-box"
+        style="
+            text-align:center;
+            max-width:430px;
+        ">
+
+
+        <div
+            style="
+                font-size:55px;
+                margin-bottom:12px;
+            ">
+
+            ⚠️
+
+        </div>
+
+
+        <h2
+            style="color:#d62839;">
+
+            تأكيد حذف المريض
+
+        </h2>
+
+
+        <p
+            style="
+                color:var(--muted);
+                margin:15px 0 25px;
+                line-height:1.8;
+            ">
+
+            هل أنت متأكد من حذف هذا المريض؟
+
+            <br>
+
+            لا يمكن التراجع عن عملية الحذف.
+
+        </p>
+
+
+        <div
+            style="
+                display:flex;
+                gap:10px;
+            ">
+
+
+            <button
+                onclick="confirmDeletePatient()"
+                style="
+                    flex:1;
+                    background:#d62839;
+                    color:white;
+                    padding:13px;
+                    border-radius:12px;
+                    font-weight:bold;
+                ">
+
+                نعم، احذف المريض
+
+            </button>
+
+
+            <button
+                onclick="cancelDeletePatient()"
+                style="
+                    flex:1;
+                    background:#edf2f3;
+                    color:#17323a;
+                    padding:13px;
+                    border-radius:12px;
+                    font-weight:bold;
+                ">
+
+                لا، إلغاء
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<!-- ======================================================
+     رسالة التنبيه
+======================================================= -->
+
+<div
+    id="toast"
+    class="toast">
+</div>
+
+
+<script>
+
+/* ======================================================
+   إعدادات التطبيق
+====================================================== */
+
+const ADMIN_PASSWORD = "mohakher";
+
+
+const WHATSAPP_GROUP =
+"https://chat.whatsapp.com/Eohfj235cvvBM7iqOPaZCm?s=cl&p=a&ilr=1";
+
+
+let medications = [];
+
+let equipment = [];
+
+let adminLoggedIn = false;
+
+let patientToDelete = null;
+
+let deleteRequestsCache = [];
+let editRequestsCache = [];
+
+
+/* ======================================================
+   قاعدة بيانات المرضى - Firebase Firestore
+   مصدر البيانات المشترك هو Firestore، والنسخة المحلية
+   التالية مجرد cache للعرض وليست مخزنًا دائمًا.
+====================================================== */
+
+var patientsCache = [];
+
+function getPatients(){
+    return Array.isArray(window.patientsCache) ? window.patientsCache.slice() : patientsCache.slice();
+}
+
+async function waitForFirebase(){
+    if(window.firebaseReady){
+        await window.firebaseReady;
+        return;
+    }
+    const started = Date.now();
+    while(typeof window.firestoreAddPatient !== "function" && Date.now() - started < 10000){
+        await new Promise(function(resolve){ setTimeout(resolve, 50); });
+    }
+    if(typeof window.firestoreAddPatient !== "function"){
+        throw new Error("Firebase لم يجهز بعد");
+    }
+}
+
+async function addPatientToFirebase(patient){
+    await waitForFirebase();
+    return await window.firestoreAddPatient(patient);
+}
+
+async function updatePatientInFirebase(patientId, data){
+    await waitForFirebase();
+    return await window.firestoreUpdatePatient(String(patientId), data);
+}
+
+async function deletePatientFromFirebase(patientId){
+    await waitForFirebase();
+    return await window.firestoreDeletePatient(String(patientId));
+}
+
+
+async function addPatientDeleteRequestToFirebase(requestData){
+    await waitForFirebase();
+    return await window.firestoreAddPatientDeleteRequest(requestData);
+}
+
+async function updatePatientDeleteRequestInFirebase(requestId, data){
+    await waitForFirebase();
+    return await window.firestoreUpdatePatientDeleteRequest(String(requestId), data);
+}
+
+async function addPatientEditRequestToFirebase(requestData){
+    await waitForFirebase();
+    return await window.firestoreAddPatientEditRequest(requestData);
+}
+
+async function updatePatientEditRequestInFirebase(requestId, data){
+    await waitForFirebase();
+    return await window.firestoreUpdatePatientEditRequest(String(requestId), data);
+}
+
+
+/* ======================================================
+   التنقل بين الواجهات
+====================================================== */
+
+function showSection(section){
+
+    document
+        .querySelectorAll(".section")
+        .forEach(function(element){
+
+            element.classList.remove("active");
+
+        });
+
+
+    const target =
+        document.getElementById(section);
+
+
+    if(target){
+
+        target.classList.add("active");
+
+    }
+
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+
+
+    if(section === "patients"){
+
+        renderPatients();
+
+    }
+
+
+    if(
+        section === "admin" &&
+        adminLoggedIn
+    ){
+
+        renderAdminPatients();
+
+    }
+
+}
+
+
+/* ======================================================
+   القوائم المنسدلة
+====================================================== */
+
+function toggleDropdown(id){
+
+    document
+        .querySelectorAll(".dropdown")
+        .forEach(function(dropdown){
+
+            if(dropdown.id !== id){
+
+                dropdown.classList.remove("open");
+
+            }
+
+        });
+
+
+    const dropdown =
+        document.getElementById(id);
+
+
+    if(dropdown){
+
+        dropdown.classList.toggle("open");
+
+    }
+
+}
+
+
+document.addEventListener(
+    "click",
+    function(event){
+
+        if(
+            !event.target.closest(".dropdown")
+        ){
+
+            document
+                .querySelectorAll(".dropdown")
+                .forEach(function(dropdown){
+
+                    dropdown.classList.remove("open");
+
+                });
+
+        }
+
+    }
+);
+
+
+/* ======================================================
+   الأدوية
+====================================================== */
+
+function addMedication(name){
+
+    if(
+        !medications.includes(name)
+    ){
+
+        medications.push(name);
+
+        renderMedications();
+
+    }
+
+}
+
+
+function addCustomMedication(){
+
+    const input =
+        document.getElementById(
+            "customMedication"
+        );
+
+
+    const value =
+        input.value.trim();
+
+
+    if(!value){
+
+        return;
+
+    }
+
+
+    addMedication(value);
+
+
+    input.value = "";
+
+}
+
+
+function removeMedication(index){
+
+    medications.splice(index,1);
+
+    renderMedications();
+
+}
+
+
+function renderMedications(){
+
+    const container =
+        document.getElementById(
+            "medicationChips"
+        );
+
+
+    container.innerHTML = "";
+
+
+    medications.forEach(
+        function(medication,index){
+
+            container.innerHTML += `
+
+                <div class="chip">
+
+                    ${escapeHTML(medication)}
+
+                    <button
+                        type="button"
+                        onclick="removeMedication(${index})">
+
+                        ×
+
+                    </button>
+
+                </div>
+
+            `;
+
+        }
+    );
+
+}
+
+
+/* ======================================================
+   تجهيزات القسطرة
+====================================================== */
+
+function addEquipment(name){
+
+    if(
+        !equipment.includes(name)
+    ){
+
+        equipment.push(name);
+
+        renderEquipment();
+
+    }
+
+}
+
+
+function addCustomEquipment(){
+
+    const input =
+        document.getElementById(
+            "customEquipment"
+        );
+
+
+    const value =
+        input.value.trim();
+
+
+    if(!value){
+
+        return;
+
+    }
+
+
+    addEquipment(value);
+
+
+    input.value = "";
+
+}
+
+
+function removeEquipment(index){
+
+    equipment.splice(index,1);
+
+    renderEquipment();
+
+}
+
+
+function renderEquipment(){
+
+    const container =
+        document.getElementById(
+            "equipmentChips"
+        );
+
+
+    container.innerHTML = "";
+
+
+    equipment.forEach(
+        function(item,index){
+
+            container.innerHTML += `
+
+                <div class="chip">
+
+                    ${escapeHTML(item)}
+
+                    <button
+                        type="button"
+                        onclick="removeEquipment(${index})">
+
+                        ×
+
+                    </button>
+
+                </div>
+
+            `;
+
+        }
+    );
+
+}
+
+
+/* ======================================================
+   حفظ المريض
+====================================================== */
+
+async function savePatient(){
+
+    const name = document.getElementById("patientName").value.trim();
+    const age = document.getElementById("patientAge").value.trim();
+    const diagnosis = document.getElementById("diagnosis").value.trim();
+    const bp = document.getElementById("bp").value.trim();
+    const hr = document.getElementById("hr").value.trim();
+    const o2 = document.getElementById("o2").value.trim();
+    const rr = document.getElementById("rr").value.trim();
+    const notes = document.getElementById("notes").value.trim();
+
+    if(!name || !age || !diagnosis){
+        showToast("يرجى إدخال اسم المريض والعمر والتشخيص", "error");
+        return;
+    }
+
+    const patient = {
+        name,
+        age,
+        diagnosis,
+        vitals:{ bp:bp || "-", hr:hr || "-", o2:o2 || "-", rr:rr || "-" },
+        medications:[...medications],
+        equipment:[...equipment],
+        notes,
+        status:"pending",
+        createdAt:new Date().toISOString()
+    };
+
+    try{
+        await addPatientToFirebase(patient);
+
+        showToast("تم إرسال المريض للإدارة، انتظر الموافقة", "success");
+        resetPatientForm();
+
+        setTimeout(function(){
+            showSection("patients");
+        }, 700);
+    }catch(error){
+        console.error(error);
+        showToast("تعذر حفظ المريض في قاعدة البيانات", "error");
+    }
+}
+
+
+/* ======================================================
+   تفريغ نموذج المريض
+====================================================== */
+
+function resetPatientForm(){
+
+    document.getElementById(
+        "patientName"
+    ).value = "";
+
+
+    document.getElementById(
+        "patientAge"
+    ).value = "";
+
+
+    document.getElementById(
+        "diagnosis"
+    ).value = "";
+
+
+    document.getElementById(
+        "bp"
+    ).value = "";
+
+
+    document.getElementById(
+        "hr"
+    ).value = "";
+
+
+    document.getElementById(
+        "o2"
+    ).value = "";
+
+
+    document.getElementById(
+        "rr"
+    ).value = "";
+
+
+    document.getElementById(
+        "notes"
+    ).value = "";
+
+
+    medications = [];
+
+    equipment = [];
+
+
+    renderMedications();
+
+    renderEquipment();
+
+}
+
+
+/* ======================================================
+   عرض المرضى
+====================================================== */
+
+function renderPatients(){
+
+    const container =
+        document.getElementById(
+            "patientList"
+        );
+
+
+    /* قائمة التصفح العامة تعرض المرضى الموافق عليهم فقط */
+    const patients =
+        getPatients().filter(function(patient){
+            return patient.status === "approved";
+        });
+
+
+    if(!patients.length){
+
+        container.innerHTML = `
+
+            <div class="empty">
+
+                <div
+                    style="
+                        font-size:50px;
+                        margin-bottom:12px;
+                    ">
+
+                    🫀
+
+                </div>
+
+
+                <h3>
+                    لا يوجد مرضى مسجلون حالياً
+                </h3>
+
+
+                <p style="margin-top:8px;">
+
+                    استخدم زر
+                    "إضافة مريض"
+                    لإدخال أول حالة.
+
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    container.innerHTML = "";
+
+
+    patients.forEach(
+        function(patient){
+
+            const meds =
+                patient.medications &&
+                patient.medications.length
+
+                ?
+
+                patient.medications.join("، ")
+
+                :
+
+                "لا يوجد";
+
+
+            const equipmentText =
+                patient.equipment &&
+                patient.equipment.length
+
+                ?
+
+                patient.equipment.join("، ")
+
+                :
+
+                "لا يوجد";
+
+
+            let statusText =
+                "بانتظار الموافقة";
+
+
+            if(
+                patient.status === "approved"
+            ){
+
+                statusText =
+                    "تمت الموافقة";
+
+            }
+
+
+            if(
+                patient.status === "rejected"
+            ){
+
+                statusText =
+                    "مرفوض";
+
+            }
+
+
+            container.innerHTML += `
+
+                <article
+                    class="patient-card">
+
+                    <button
+                        type="button"
+                        class="patient-edit-corner"
+                        onclick="openEditPatientModal('${patient.id}')">
+                        ✏️ تعديل
+                    </button>
+
+
+                    <!-- رأس بطاقة المريض -->
+
+                    <div
+                        class="patient-head">
+
+
+                        <div>
+
+                            <div
+                                class="patient-name">
+
+                                ${escapeHTML(
+                                    patient.name
+                                )}
+
+                            </div>
+
+
+                            <div
+                                class="patient-age">
+
+                                العمر:
+                                ${escapeHTML(
+                                    patient.age
+                                )}
+                                سنة
+
+                            </div>
+
+                        </div>
+
+
+                        <span
+                            class="
+                                status
+                                ${patient.status}
+                            ">
+
+                            ${statusText}
+
+                        </span>
+
+
+                    </div>
+
+
+                    <!-- معلومات المريض -->
+
+                    <div
+                        class="patient-body">
+
+
+                        <!-- التشخيص -->
+
+                        <div
+                            class="info-row">
+
+
+                            <div
+                                class="info-label">
+
+                                التشخيص
+
+                            </div>
+
+
+                            <div
+                                class="info-value">
+
+                                ${escapeHTML(
+                                    patient.diagnosis
+                                )}
+
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- العلامات الحيوية -->
+
+                        <div
+                            class="info-row">
+
+
+                            <div
+                                class="info-label">
+
+                                العلامات الحيوية
+
+                            </div>
+
+
+                            <div
+                                class="vitals">
+
+
+                                <div
+                                    class="vital">
+
+                                    <strong>
+
+                                        ${escapeHTML(
+                                            patient.vitals?.bp || "-"
+                                        )}
+
+                                    </strong>
+
+                                    <span>
+                                        BP
+                                    </span>
+
+                                </div>
+
+
+                                <div
+                                    class="vital">
+
+                                    <strong>
+
+                                        ${escapeHTML(
+                                            patient.vitals?.hr || "-"
+                                        )}
+
+                                    </strong>
+
+                                    <span>
+                                        HR
+                                    </span>
+
+                                </div>
+
+
+                                <div
+                                    class="vital">
+
+                                    <strong>
+
+                                        ${escapeHTML(
+                                            patient.vitals?.o2 || "-"
+                                        )}
+
+                                    </strong>
+
+                                    <span>
+                                        O₂
+                                    </span>
+
+                                </div>
+
+
+                                <div
+                                    class="vital">
+
+                                    <strong>
+
+                                        ${escapeHTML(
+                                            patient.vitals?.rr || "-"
+                                        )}
+
+                                    </strong>
+
+                                    <span>
+                                        RR
+                                    </span>
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- الأدوية -->
+
+                        <div
+                            class="info-row">
+
+
+                            <div
+                                class="info-label">
+
+                                الأدوية الفعالة
+
+                            </div>
+
+
+                            <div
+                                class="info-value">
+
+                                ${escapeHTML(
+                                    meds
+                                )}
+
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- تجهيزات القسطرة -->
+
+                        <div
+                            class="info-row">
+
+
+                            <div
+                                class="info-label">
+
+                                تجهيزات القسطرة
+
+                            </div>
+
+
+                            <div
+                                class="info-value">
+
+                                ${escapeHTML(
+                                    equipmentText
+                                )}
+
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- الملاحظات -->
+
+                        ${
+                            patient.notes
+
+                            ?
+
+                            `
+
+                            <div
+                                class="info-row">
+
+
+                                <div
+                                    class="info-label">
+
+                                    ملاحظات إضافية
+
+                                </div>
+
+
+                                <div
+                                    class="info-value">
+
+                                    ${escapeHTML(
+                                        patient.notes
+                                    )}
+
+                                </div>
+
+
+                            </div>
+
+                            `
+
+                            :
+
+                            ""
+
+                        }
+
+
+                    </div>
+
+
+                    <!-- أزرار المريض -->
+
+                    <div
+                        class="patient-actions">
+
+
+                        <button
+                            type="button"
+                            class="
+                                action-btn
+                                share-btn
+                            "
+                            onclick="sharePatient('${patient.id}')">
+
+                            📤 مشاركة
+
+                        </button>
+
+                        <button
+                            type="button"
+                            class="action-btn request-delete-btn"
+                            onclick="requestPatientDelete('${patient.id}')">
+
+                            🗑 طلب حذف
+
+                        </button>
+
+
+                    </div>
+
+
+                </article>
+
+            `;
+
+        }
+    );
+
+}
+
+
+/* ======================================================
+   دخول الإدارة
+====================================================== */
+
+function adminLogin(){
+
+    const password =
+        document
+            .getElementById(
+                "adminPassword"
+            )
+            .value;
+
+
+    if(
+        password === ADMIN_PASSWORD
+    ){
+
+        adminLoggedIn = true;
+
+
+        document.getElementById(
+            "adminLogin"
+        ).style.display = "none";
+
+
+        document.getElementById(
+            "adminPanel"
+        ).classList.add("active");
+
+
+        renderAdminPatients();
+
+
+        showToast(
+            "تم الدخول إلى لوحة الإدارة بنجاح",
+            "success"
+        );
+
+
+    }else{
+
+        showToast(
+            "كلمة مرور الإدارة غير صحيحة",
+            "error"
+        );
+
+    }
+
+}
+
+
+/* ======================================================
+   تسجيل خروج الإدارة
+====================================================== */
+
+function adminLogout(){
+
+    adminLoggedIn = false;
+
+
+    document.getElementById(
+        "adminLogin"
+    ).style.display = "block";
+
+
+    document.getElementById(
+        "adminPanel"
+    ).classList.remove("active");
+
+
+    document.getElementById(
+        "adminPassword"
+    ).value = "";
+
+
+    showToast(
+        "تم تسجيل الخروج من الإدارة",
+        "success"
+    );
+
+}
+
+
+/* ======================================================
+   عرض مرضى الإدارة
+====================================================== */
+
+function renderAdminRequests(){
+
+    const editContainer = document.getElementById("adminEditRequests");
+    const deleteContainer = document.getElementById("adminDeleteRequests");
+
+    if(!editContainer || !deleteContainer) return;
+
+    const pendingEdits = editRequestsCache.filter(function(request){
+        return request.status === "pending";
+    });
+
+    const pendingDeletes = deleteRequestsCache.filter(function(request){
+        return request.status === "pending";
+    });
+
+    if(!pendingEdits.length){
+        editContainer.innerHTML = "";
+    }else{
+        editContainer.innerHTML = `
+            <div class="section-title" style="margin-bottom:12px;">
+                <h3>✏️ طلبات تعديل المرضى</h3>
+                <p>مراجعة التعديلات قبل تطبيقها على بيانات المريض.</p>
+            </div>
+        `;
+
+        pendingEdits.forEach(function(request){
+            const patient = getPatients().find(function(item){
+                return String(item.id) === String(request.patientId);
+            });
+            if(!patient) return;
+
+            const proposed = request.proposedData || {};
+            const vitals = proposed.vitals || {};
+
+            editContainer.innerHTML += `
+                <div class="request-box">
+                    <h4>طلب تعديل: ${escapeHTML(patient.name || "")}</h4>
+                    <div class="request-meta">
+                        المريض الحالي: ${escapeHTML(patient.name || "")}
+                        <br>
+                        الاسم المقترح: ${escapeHTML(proposed.name || "")}
+                        — العمر: ${escapeHTML(proposed.age || "")}
+                        <br>
+                        التشخيص المقترح: ${escapeHTML(proposed.diagnosis || "")}
+                    </div>
+
+                    <div class="edit-request-preview">
+                        <strong>العلامات الحيوية:</strong>
+                        BP ${escapeHTML(vitals.bp || "-")} |
+                        HR ${escapeHTML(vitals.hr || "-")} |
+                        O₂ ${escapeHTML(vitals.o2 || "-")} |
+                        RR ${escapeHTML(vitals.rr || "-")}
+                        <br>
+                        <strong>الأدوية:</strong>
+                        ${escapeHTML((proposed.medications || []).join("، ") || "لا يوجد")}
+                        <br>
+                        <strong>التجهيزات:</strong>
+                        ${escapeHTML((proposed.equipment || []).join("، ") || "لا يوجد")}
+                        <br>
+                        <strong>الملاحظات:</strong>
+                        ${escapeHTML(proposed.notes || "لا يوجد")}
+                    </div>
+
+                    <div class="request-actions">
+                        <button
+                            type="button"
+                            class="request-approve"
+                            onclick="reviewPatientEditRequest('${request.id}', 'approved')">
+                            ✓ قبول التعديل
+                        </button>
+
+                        <button
+                            type="button"
+                            class="request-reject"
+                            onclick="reviewPatientEditRequest('${request.id}', 'rejected')">
+                            ✕ رفض التعديل
+                        </button>
+                    </div>
+                </div>
+            `;
+        });
+    }
+
+    if(!pendingDeletes.length){
+        deleteContainer.innerHTML = "";
+    }else{
+        deleteContainer.innerHTML = `
+            <div class="section-title" style="margin-bottom:12px;">
+                <h3>🗑️ طلبات حذف المرضى</h3>
+                <p>الموافقة على الطلب تحذف المريض من Firestore ومن واجهة جميع المستخدمين.</p>
+            </div>
+        `;
+
+        pendingDeletes.forEach(function(request){
+            const patient = getPatients().find(function(item){
+                return String(item.id) === String(request.patientId);
+            });
+
+            deleteContainer.innerHTML += `
+                <div class="request-box">
+                    <h4>طلب حذف المريض: ${escapeHTML(patient ? patient.name : request.patientName || "")}</h4>
+                    <div class="request-meta">
+                        ${patient ? "المريض موجود حالياً في قاعدة البيانات." : "المريض غير موجود حالياً."}
+                    </div>
+
+                    <div class="request-actions">
+                        <button
+                            type="button"
+                            class="request-approve"
+                            onclick="reviewPatientDeleteRequest('${request.id}', 'approved')">
+                            ✓ الموافقة على الحذف
+                        </button>
+
+                        <button
+                            type="button"
+                            class="request-reject"
+                            onclick="reviewPatientDeleteRequest('${request.id}', 'rejected')">
+                            ✕ رفض الطلب
+                        </button>
+                    </div>
+                </div>
+            `;
+        });
+    }
+}
+
+async function reviewPatientEditRequest(requestId, decision){
+
+    if(!adminLoggedIn){
+        showToast("ليس لديك صلاحية الإدارة", "error");
+        return;
+    }
+
+    const request = editRequestsCache.find(function(item){
+        return String(item.id) === String(requestId);
+    });
+
+    if(!request){
+        showToast("لم يتم العثور على طلب التعديل", "error");
+        return;
+    }
+
+    if(decision !== "approved" && decision !== "rejected"){
+        showToast("قرار غير صحيح", "error");
+        return;
+    }
+
+    try{
+        await waitForFirebase();
+
+        if(decision === "approved"){
+            await window.firestoreApprovePatientEdit(
+                String(request.patientId),
+                request.proposedData || {},
+                String(requestId)
+            );
+            showToast("تم قبول التعديل وتحديث بيانات المريض", "success");
+        }else{
+            await updatePatientEditRequestInFirebase(String(requestId), {
+                status: "rejected",
+                reviewedAt: new Date().toISOString()
+            });
+            showToast("تم رفض طلب التعديل", "error");
+        }
+    }catch(error){
+        console.error("خطأ في مراجعة طلب التعديل:", error);
+        showToast("فشل تنفيذ قرار التعديل: " + (error.message || ""), "error");
+    }
+}
+
+async function reviewPatientDeleteRequest(requestId, decision){
+
+    if(!adminLoggedIn){
+        showToast("ليس لديك صلاحية الإدارة", "error");
+        return;
+    }
+
+    const request = deleteRequestsCache.find(function(item){
+        return String(item.id) === String(requestId);
+    });
+
+    if(!request){
+        showToast("لم يتم العثور على طلب الحذف", "error");
+        return;
+    }
+
+    if(decision !== "approved" && decision !== "rejected"){
+        showToast("قرار غير صحيح", "error");
+        return;
+    }
+
+    try{
+        await waitForFirebase();
+
+        if(decision === "approved"){
+            await window.firestoreApprovePatientDelete(
+                String(request.patientId),
+                String(requestId)
+            );
+            showToast("تمت الموافقة على الحذف وحذف المريض نهائياً", "success");
+        }else{
+            await updatePatientDeleteRequestInFirebase(String(requestId), {
+                status: "rejected",
+                reviewedAt: new Date().toISOString()
+            });
+            showToast("تم رفض طلب حذف المريض", "error");
+        }
+    }catch(error){
+        console.error("خطأ في مراجعة طلب الحذف:", error);
+        showToast("فشل تنفيذ قرار الحذف: " + (error.message || ""), "error");
+    }
+}
+
+
+function renderAdminPatients(){
+
+    renderAdminRequests();
+
+    const container =
+        document.getElementById(
+            "adminPatients"
+        );
+
+
+    if(!container){
+
+        return;
+
+    }
+
+
+    /* لوحة الإدارة تعرض الطلبات الفعالة فقط؛ المرفوض يختفي من الواجهة */
+    const patients =
+        getPatients().filter(function(patient){
+            return patient.status !== "rejected";
+        });
+
+
+    if(!patients.length){
+
+        container.innerHTML = `
+
+            <div class="empty">
+
+                <div
+                    style="
+                        font-size:45px;
+                        margin-bottom:10px;
+                    ">
+
+                    📋
+
+                </div>
+
+
+                <h3>
+                    لا توجد طلبات مرضى حالياً
+                </h3>
+
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    container.innerHTML = "";
+
+
+    patients.forEach(
+        function(patient){
+
+            const meds =
+                patient.medications &&
+                patient.medications.length
+
+                ?
+
+                patient.medications.join("، ")
+
+                :
+
+                "لا يوجد";
+
+
+            const equipmentText =
+                patient.equipment &&
+                patient.equipment.length
+
+                ?
+
+                patient.equipment.join("، ")
+
+                :
+
+                "لا يوجد";
+
+
+            let statusText =
+                "بانتظار الموافقة";
+
+
+            if(
+                patient.status === "approved"
+            ){
+
+                statusText =
+                    "تمت الموافقة";
+
+            }
+
+
+            if(
+                patient.status === "rejected"
+            ){
+
+                statusText =
+                    "مرفوض";
+
+            }
+
+
+            container.innerHTML += `
+
+                <div
+                    class="admin-patient">
+
+
+                    <div
+                        class="admin-patient-top">
+
+
+                        <div>
+
+                            <h3>
+
+                                ${escapeHTML(
+                                    patient.name
+                                )}
+
+                            </h3>
+
+
+                            <p
+                                style="
+                                    color:var(--muted);
+                                    margin-top:5px;
+                                ">
+
+                                العمر:
+                                ${escapeHTML(
+                                    patient.age
+                                )}
+                                سنة
+
+                            </p>
+
+                        </div>
+
+
+                        <span
+                            class="
+                                status
+                                ${patient.status}
+                            ">
+
+                            ${statusText}
+
+                        </span>
+
+
+                    </div>
+
+
+                    <div
+                        class="info-row">
+
+
+                        <div
+                            class="info-label">
+
+                            التشخيص
+
+                        </div>
+
+
+                        <div
+                            class="info-value">
+
+                            ${escapeHTML(
+                                patient.diagnosis
+                            )}
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div
+                        class="info-row">
+
+
+                        <div
+                            class="info-label">
+
+                            العلامات الحيوية
+
+                        </div>
+
+
+                        <div
+                            class="info-value">
+
+                            BP:
+                            ${escapeHTML(
+                                patient.vitals?.bp || "-"
+                            )}
+
+                            &nbsp; | &nbsp;
+
+                            HR:
+                            ${escapeHTML(
+                                patient.vitals?.hr || "-"
+                            )}
+
+                            &nbsp; | &nbsp;
+
+                            O₂:
+                            ${escapeHTML(
+                                patient.vitals?.o2 || "-"
+                            )}
+
+                            &nbsp; | &nbsp;
+
+                            RR:
+                            ${escapeHTML(
+                                patient.vitals?.rr || "-"
+                            )}
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div
+                        class="info-row">
+
+
+                        <div
+                            class="info-label">
+
+                            الأدوية الفعالة
+
+                        </div>
+
+
+                        <div
+                            class="info-value">
+
+                            ${escapeHTML(
+                                meds
+                            )}
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div
+                        class="info-row">
+
+
+                        <div
+                            class="info-label">
+
+                            تجهيزات القسطرة
+
+                        </div>
+
+
+                        <div
+                            class="info-value">
+
+                            ${escapeHTML(
+                                equipmentText
+                            )}
+
+                        </div>
+
+
+                    </div>
+
+
+                    ${
+                        patient.notes
+
+                        ?
+
+                        `
+
+                        <div
+                            class="info-row">
+
+
+                            <div
+                                class="info-label">
+
+                                الملاحظات
+
+                            </div>
+
+
+                            <div
+                                class="info-value">
+
+                                ${escapeHTML(
+                                    patient.notes
+                                )}
+
+                            </div>
+
+
+                        </div>
+
+                        `
+
+                        :
+
+                        ""
+
+                    }
+
+
+                    <div
+                        class="admin-buttons">
+
+
+                        ${
+                            patient.status === "pending"
+
+                            ?
+
+                            `
+
+                            <button
+                                type="button"
+                                class="approve"
+                                onclick="
+                                    updatePatientStatus(
+                                        '${patient.id}',
+                                        'approved'
+                                    )
+                                ">
+
+                                ✓ قبول المريض
+
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="reject"
+                                onclick="
+                                    updatePatientStatus(
+                                        '${patient.id}',
+                                        'rejected'
+                                    )
+                                ">
+
+                                ✕ رفض المريض
+
+                            </button>
+
+                            `
+
+                            :
+
+                            ""
+
+                        }
+
+
+                        <!-- الحذف متاح للإدارة فقط -->
+
+                        <button
+                            type="button"
+                            class="admin-delete"
+                            onclick="
+                                requestDeletePatient(
+                                    '${patient.id}'
+                                )
+                            ">
+
+                            🗑 حذف المريض
+
+                        </button>
+
+
+                    </div>
+
+
+                </div>
+
+            `;
+
+        }
+    );
+
+}
+
+
+/* ======================================================
+   قبول أو رفض المريض
+====================================================== */
+
+async function updatePatientStatus(id, status){
+
+    if(!adminLoggedIn){
+        showToast("ليس لديك صلاحية الإدارة", "error");
+        return;
+    }
+
+    const patientId = String(id);
+    const patient = getPatients().find(function(item){
+        return String(item.id) === patientId;
+    });
+
+    if(!patient){
+        showToast("لم يتم العثور على المريض", "error");
+        return;
+    }
+
+    if(status !== "approved" && status !== "rejected"){
+        showToast("حالة غير صحيحة", "error");
+        return;
+    }
+
+    try{
+        /* تحديث الواجهة فوراً، ثم تثبيت التغيير في Firestore */
+        patientsCache = getPatients().map(function(item){
+            if(String(item.id) === patientId){
+                return Object.assign({}, item, {status: status});
+            }
+            return item;
+        });
+        window.patientsCache = patientsCache;
+        renderPatients();
+        renderAdminPatients();
+
+        await updatePatientInFirebase(patientId, {status: status});
+
+        if(status === "approved"){
+            showToast("تمت الموافقة على المريض ✓ وظهر في تصفح المرضى", "success");
+        }else{
+            showToast("تم رفض المريض وإخفاؤه نهائياً من الواجهة", "error");
+        }
+    }catch(error){
+        console.error("خطأ في تحديث المريض:", error);
+        showToast("فشل تحديث المريض: " + (error.message || "تحقق من صلاحيات Firestore"), "error");
+        /* onSnapshot سيعيد الحالة الحقيقية إذا رفض Firestore العملية */
+    }
+}
+
+
+/* ======================================================
+   مشاركة معلومات المريض
+   يفتح مشاركة النظام الأصلية في الهاتف
+====================================================== */
+
+async function sharePatient(id){
+
+    const patient =
+        getPatients().find(
+            function(item){
+                return String(item.id) === String(id);
+            }
+        );
+
+
+    if(!patient){
+
+                showToast(
+            "لم يتم العثور على بيانات المريض",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    const medicationsText =
+
+        patient.medications &&
+        patient.medications.length > 0
+
+        ?
+
+        patient.medications
+            .map(
+                function(item){
+
+                    return "• " + item;
+
+                }
+            )
+            .join("\n")
+
+        :
+
+        "• لا يوجد";
+
+
+    const equipmentText =
+
+        patient.equipment &&
+        patient.equipment.length > 0
+
+        ?
+
+        patient.equipment
+            .map(
+                function(item){
+
+                    return "• " + item;
+
+                }
+            )
+            .join("\n")
+
+        :
+
+        "• لا يوجد";
+
+
+    const patientText =
+
+`🫀 الرعاية القلبية الحثيثة وقسطرة القلب
+مستشفى الطفيلة الحكومي
+
+👤 اسم المريض:
+${patient.name}
+
+🎂 العمر:
+${patient.age} سنة
+
+🩺 التشخيص:
+${patient.diagnosis}
+
+❤️ العلامات الحيوية:
+BP: ${patient.vitals?.bp || "-"}
+HR: ${patient.vitals?.hr || "-"}
+O₂: ${patient.vitals?.o2 || "-"}
+RR: ${patient.vitals?.rr || "-"}
+
+💊 الأدوية الفعالة:
+${medicationsText}
+
+🫀 تجهيزات القسطرة:
+${equipmentText}
+
+📝 الملاحظات:
+${patient.notes || "لا يوجد"}`;
+
+
+    /* ==================================================
+       مشاركة النظام الأصلية في الهاتف
+    ================================================== */
+
+    if(
+        navigator.share
+    ){
+
+        try{
+
+            await navigator.share({
+
+                title:
+                    "معلومات المريض",
+
+                text:
+                    patientText
+
+            });
+
+        }
+        catch(error){
+
+            if(
+                error.name !== "AbortError"
+            ){
+
+                showToast(
+                    "تعذر فتح قائمة المشاركة",
+                    "error"
+                );
+
+            }
+
+        }
+
+        return;
+
+    }
+
+
+    /* ==================================================
+       بديل للأجهزة التي لا تدعم المشاركة
+    ================================================== */
+
+    try{
+
+        await navigator.clipboard.writeText(
+            patientText
+        );
+
+
+        showToast(
+            "تم نسخ معلومات المريض للمشاركة",
+            "success"
+        );
+
+    }
+    catch(error){
+
+        showToast(
+            "المشاركة غير مدعومة على هذا الجهاز",
+            "error"
+        );
+
+    }
+
+}
+
+
+/* ======================================================
+   طلب تعديل بيانات المريض
+====================================================== */
+
+function openEditPatientModal(id){
+
+    const patient = getPatients().find(function(item){
+        return String(item.id) === String(id);
+    });
+
+    if(!patient){
+        showToast("لم يتم العثور على المريض", "error");
+        return;
+    }
+
+    const existing = editRequestsCache.find(function(request){
+        return String(request.patientId) === String(id) &&
+               request.status === "pending";
+    });
+
+    if(existing){
+        showToast("يوجد بالفعل طلب تعديل قيد المراجعة لهذا المريض", "error");
+        return;
+    }
+
+    document.getElementById("editPatientId").value = String(patient.id);
+    document.getElementById("editPatientName").value = patient.name || "";
+    document.getElementById("editPatientAge").value = patient.age || "";
+    document.getElementById("editPatientDiagnosis").value = patient.diagnosis || "";
+    document.getElementById("editPatientBp").value = patient.vitals?.bp || "";
+    document.getElementById("editPatientHr").value = patient.vitals?.hr || "";
+    document.getElementById("editPatientO2").value = patient.vitals?.o2 || "";
+    document.getElementById("editPatientRr").value = patient.vitals?.rr || "";
+    document.getElementById("editPatientMedications").value = (patient.medications || []).join(", ");
+    document.getElementById("editPatientEquipment").value = (patient.equipment || []).join(", ");
+    document.getElementById("editPatientNotes").value = patient.notes || "";
+
+    document.getElementById("editPatientModal").classList.add("active");
+}
+
+function closeEditPatientModal(){
+    const modal = document.getElementById("editPatientModal");
+    if(modal) modal.classList.remove("active");
+}
+
+async function submitPatientEditRequest(){
+
+    const patientId = String(document.getElementById("editPatientId").value || "");
+
+    if(!patientId){
+        showToast("لم يتم تحديد المريض", "error");
+        return;
+    }
+
+    const name = document.getElementById("editPatientName").value.trim();
+    const age = document.getElementById("editPatientAge").value.trim();
+    const diagnosis = document.getElementById("editPatientDiagnosis").value.trim();
+
+    if(!name || !age || !diagnosis){
+        showToast("يرجى إدخال اسم المريض والعمر والتشخيص", "error");
+        return;
+    }
+
+    const duplicate = editRequestsCache.find(function(request){
+        return String(request.patientId) === patientId &&
+               request.status === "pending";
+    });
+
+    if(duplicate){
+        showToast("يوجد طلب تعديل قيد المراجعة بالفعل", "error");
+        return;
+    }
+
+    const proposedData = {
+        name: name,
+        age: age,
+        diagnosis: diagnosis,
+        vitals: {
+            bp: document.getElementById("editPatientBp").value.trim() || "-",
+            hr: document.getElementById("editPatientHr").value.trim() || "-",
+            o2: document.getElementById("editPatientO2").value.trim() || "-",
+            rr: document.getElementById("editPatientRr").value.trim() || "-"
+        },
+        medications: document.getElementById("editPatientMedications").value
+            .split(",").map(function(item){ return item.trim(); }).filter(Boolean),
+        equipment: document.getElementById("editPatientEquipment").value
+            .split(",").map(function(item){ return item.trim(); }).filter(Boolean),
+        notes: document.getElementById("editPatientNotes").value.trim()
+    };
+
+    try{
+        await addPatientEditRequestToFirebase({
+            patientId: patientId,
+            proposedData: proposedData,
+            status: "pending",
+            createdAt: new Date().toISOString()
+        });
+
+        closeEditPatientModal();
+        showToast("تم إرسال طلب تعديل بيانات المريض للإدارة", "success");
+    }catch(error){
+        console.error("خطأ في إرسال طلب التعديل:", error);
+        showToast("تعذر إرسال طلب التعديل: " + (error.message || ""), "error");
+    }
+}
+
+
+/* ======================================================
+   طلب حذف المريض من المستخدم
+====================================================== */
+
+function requestPatientDelete(id){
+
+    const patientId = String(id);
+
+    const patient = getPatients().find(function(item){
+        return String(item.id) === patientId;
+    });
+
+    if(!patient){
+        showToast("لم يتم العثور على المريض", "error");
+        return;
+    }
+
+    const existing = deleteRequestsCache.find(function(request){
+        return String(request.patientId) === patientId &&
+               request.status === "pending";
+    });
+
+    if(existing){
+        showToast("يوجد بالفعل طلب حذف قيد المراجعة لهذا المريض", "error");
+        return;
+    }
+
+    document.getElementById("deleteRequestPatientId").value = patientId;
+    document.getElementById("deleteRequestModal").classList.add("active");
+}
+
+function closeDeleteRequestModal(){
+    const modal = document.getElementById("deleteRequestModal");
+    if(modal) modal.classList.remove("active");
+}
+
+async function submitPatientDeleteRequest(){
+
+    const patientId = String(document.getElementById("deleteRequestPatientId").value || "");
+
+    if(!patientId){
+        showToast("لم يتم تحديد المريض", "error");
+        return;
+    }
+
+    const existing = deleteRequestsCache.find(function(request){
+        return String(request.patientId) === patientId &&
+               request.status === "pending";
+    });
+
+    if(existing){
+        closeDeleteRequestModal();
+        showToast("يوجد طلب حذف قيد المراجعة بالفعل", "error");
+        return;
+    }
+
+    const patient = getPatients().find(function(item){
+        return String(item.id) === patientId;
+    });
+
+    if(!patient){
+        closeDeleteRequestModal();
+        showToast("المريض لم يعد موجوداً", "error");
+        return;
+    }
+
+    try{
+        await addPatientDeleteRequestToFirebase({
+            patientId: patientId,
+            patientName: patient.name || "",
+            status: "pending",
+            createdAt: new Date().toISOString()
+        });
+
+        closeDeleteRequestModal();
+        showToast("تم إرسال طلب حذف المريض للإدارة", "success");
+    }catch(error){
+        console.error("خطأ في إرسال طلب الحذف:", error);
+        showToast("تعذر إرسال طلب الحذف: " + (error.message || ""), "error");
+    }
+}
+
+
+/* ======================================================
+   طلب حذف المريض من الإدارة
+====================================================== */
+
+function requestDeletePatient(id){
+
+    if(!adminLoggedIn){
+
+        showToast(
+            "الحذف متاح للإدارة فقط",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    patientToDelete = String(id);
+
+
+    document
+        .getElementById("deleteModal")
+        .classList.add("active");
+
+}
+
+
+/* ======================================================
+   إلغاء الحذف
+====================================================== */
+
+function cancelDeletePatient(){
+
+    patientToDelete = null;
+
+
+    document
+        .getElementById("deleteModal")
+        .classList.remove("active");
+
+}
+
+
+/* ======================================================
+   تأكيد حذف المريض
+====================================================== */
+
+async function confirmDeletePatient(){
+
+    if(!adminLoggedIn){
+        cancelDeletePatient();
+        showToast("الحذف متاح للإدارة فقط", "error");
+        return;
+    }
+
+    if(patientToDelete === null){
+        cancelDeletePatient();
+        return;
+    }
+
+    const patientId = String(patientToDelete);
+
+    try{
+        /* احذف من الواجهة فوراً مهما كانت حالة المريض */
+        patientsCache = getPatients().filter(function(patient){
+            return String(patient.id) !== patientId;
+        });
+        window.patientsCache = patientsCache;
+        renderPatients();
+        renderAdminPatients();
+
+        await deletePatientFromFirebase(patientId);
+
+        patientToDelete = null;
+        const modal = document.getElementById("deleteModal");
+        if(modal) modal.classList.remove("active");
+        showToast("تم حذف المريض بنجاح", "success");
+
+    }catch(error){
+        console.error("خطأ في حذف المريض:", error);
+        showToast("فشل حذف المريض: " + (error.message || "تحقق من صلاحيات Firestore"), "error");
+    }
+}
+
+
+/* ======================================================
+   حالة طارئة
+====================================================== */
+
+function openEmergency(){
+
+    document
+        .getElementById("emergencyModal")
+        .classList.add("active");
+
+}
+
+
+function closeEmergency(){
+
+    document
+        .getElementById("emergencyModal")
+        .classList.remove("active");
+
+}
+
+
+function sendEmergency(){
+
+    closeEmergency();
+
+
+    window.open(
+        WHATSAPP_GROUP,
+        "_blank"
+    );
+
+
+    showToast(
+        "تم فتح مجموعة الطوارئ 🚨",
+        "success"
+    );
+
+}
+
+
+/* ======================================================
+   إغلاق النوافذ المنبثقة
+====================================================== */
+
+document
+    .querySelectorAll(".modal")
+    .forEach(
+        function(modal){
+
+            modal.addEventListener(
+                "click",
+                function(event){
+
+                    if(
+                        event.target === modal
+                    ){
+
+                        modal.classList.remove(
+                            "active"
+                        );
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+
+/* ======================================================
+   رسائل التنبيه
+====================================================== */
+
+let toastTimer;
+
+
+function showToast(
+    message,
+    type = ""
+){
+
+    const toast =
+        document.getElementById("toast");
+
+
+    if(!toast){
+
+        return;
+
+    }
+
+
+    toast.textContent =
+        message;
+
+
+    toast.className =
+        "toast show " + type;
+
+
+    clearTimeout(
+        toastTimer
+    );
+
+
+    toastTimer =
+        setTimeout(
+            function(){
+
+                toast.classList.remove(
+                    "show"
+                );
+
+            },
+            4000
+        );
+
+}
+
+
+/* ======================================================
+   حماية النصوص
+====================================================== */
+
+function escapeHTML(value){
+
+    if(
+        value === undefined ||
+        value === null
+    ){
+
+        return "";
+
+    }
+
+
+    return String(value)
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+/* ======================================================
+   تشغيل التطبيق
+====================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        renderPatients();
+
+        renderMedications();
+
+        renderEquipment();
+
+    }
+);
+
+
+/* ======================================================
+   منع الإرسال التقليدي للنماذج
+====================================================== */
+
+document.addEventListener(
+    "submit",
+    function(event){
+
+        event.preventDefault();
+
+    }
+);
+
+/* ضمان توفر الدوال المستعملة في أزرار onclick على window */
+window.renderPatients = renderPatients;
+window.renderAdminPatients = renderAdminPatients;
+window.renderAdminRequests = renderAdminRequests;
+window.updatePatientStatus = updatePatientStatus;
+window.requestDeletePatient = requestDeletePatient;
+window.confirmDeletePatient = confirmDeletePatient;
+window.cancelDeletePatient = cancelDeletePatient;
+window.sharePatient = sharePatient;
+window.savePatient = savePatient;
+window.openEditPatientModal = openEditPatientModal;
+window.closeEditPatientModal = closeEditPatientModal;
+window.submitPatientEditRequest = submitPatientEditRequest;
+window.requestPatientDelete = requestPatientDelete;
+window.closeDeleteRequestModal = closeDeleteRequestModal;
+window.submitPatientDeleteRequest = submitPatientDeleteRequest;
+window.reviewPatientEditRequest = reviewPatientEditRequest;
+window.reviewPatientDeleteRequest = reviewPatientDeleteRequest;
+
+</script>
+  
+<script type="module">
+
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
+    import { getFirestore, collection, addDoc, updateDoc, deleteDoc, doc, onSnapshot, writeBatch } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+    import { getAuth } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyCceYjI8qnUeNdbeBzhrJh0Kg7ikRxRhyc",
+        authDomain: "cardiac-care-tafila.firebaseapp.com",
+        projectId: "cardiac-care-tafila",
+        storageBucket: "cardiac-care-tafila.firebasestorage.app",
+        messagingSenderId: "711627880246",
+        appId: "1:711627880246:web:b990427c1faa68ee63e597"
+    };
+
+    let resolveFirebaseReady;
+    let rejectFirebaseReady;
+    window.firebaseReady = new Promise(function(resolve, reject){
+        resolveFirebaseReady = resolve;
+        rejectFirebaseReady = reject;
+    });
+
+    try{
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
+        const patientsCollection = collection(db, "patients");
+        const patientDeleteRequestsCollection = collection(db, "patientDeleteRequests");
+        const patientEditRequestsCollection = collection(db, "patientEditRequests");
+
+        window.firebaseApp = app;
+        window.firebaseDB = db;
+        window.firebaseAuth = auth;
+        window.deleteRequestsCache = [];
+        window.editRequestsCache = [];
+
+        window.firestoreAddPatient = async function(patient){
+            const docRef = await addDoc(patientsCollection, patient);
+            return docRef.id;
+        };
+
+        window.firestoreUpdatePatient = async function(patientId, data){
+            await updateDoc(doc(db, "patients", String(patientId)), data);
+        };
+
+        window.firestoreDeletePatient = async function(patientId){
+            await deleteDoc(doc(db, "patients", String(patientId)));
+        };
+
+        window.firestoreAddPatientDeleteRequest = async function(requestData){
+            const docRef = await addDoc(patientDeleteRequestsCollection, requestData);
+            return docRef.id;
+        };
+
+        window.firestoreUpdatePatientDeleteRequest = async function(requestId, data){
+            await updateDoc(doc(db, "patientDeleteRequests", String(requestId)), data);
+        };
+
+        window.firestoreAddPatientEditRequest = async function(requestData){
+            const docRef = await addDoc(patientEditRequestsCollection, requestData);
+            return docRef.id;
+        };
+
+        window.firestoreUpdatePatientEditRequest = async function(requestId, data){
+            await updateDoc(doc(db, "patientEditRequests", String(requestId)), data);
+        };
+
+        window.firestoreApprovePatientEdit = async function(patientId, proposedData, requestId){
+            const batch = writeBatch(db);
+            batch.update(doc(db, "patients", String(patientId)), proposedData || {});
+            batch.update(doc(db, "patientEditRequests", String(requestId)), {
+                status: "approved",
+                reviewedAt: new Date().toISOString()
+            });
+            await batch.commit();
+        };
+
+        window.firestoreApprovePatientDelete = async function(patientId, requestId){
+            const batch = writeBatch(db);
+            batch.delete(doc(db, "patients", String(patientId)));
+            batch.update(doc(db, "patientDeleteRequests", String(requestId)), {
+                status: "approved",
+                reviewedAt: new Date().toISOString()
+            });
+            await batch.commit();
+        };
+
+        onSnapshot(patientsCollection, function(snapshot){
+            window.patientsCache = snapshot.docs.map(function(document){
+                return { id: document.id, ...document.data() };
+            });
+            patientsCache = window.patientsCache.slice();
+
+            if(typeof window.renderPatients === "function") window.renderPatients();
+            if(typeof window.renderAdminPatients === "function") window.renderAdminPatients();
+            if(typeof window.renderAdminRequests === "function") window.renderAdminRequests();
+        }, function(error){
+            console.error("Firestore onSnapshot error:", error);
+            if(typeof showToast === "function") showToast("خطأ في مزامنة المرضى: " + (error.message || ""), "error");
+        });
+
+        onSnapshot(patientDeleteRequestsCollection, function(snapshot){
+            window.deleteRequestsCache = snapshot.docs.map(function(document){
+                return { id: document.id, ...document.data() };
+            });
+            deleteRequestsCache = window.deleteRequestsCache.slice();
+
+            if(typeof window.renderAdminRequests === "function") window.renderAdminRequests();
+        }, function(error){
+            console.error("Firestore delete requests onSnapshot error:", error);
+        });
+
+        onSnapshot(patientEditRequestsCollection, function(snapshot){
+            window.editRequestsCache = snapshot.docs.map(function(document){
+                return { id: document.id, ...document.data() };
+            });
+            editRequestsCache = window.editRequestsCache.slice();
+
+            if(typeof window.renderAdminRequests === "function") window.renderAdminRequests();
+        }, function(error){
+            console.error("Firestore edit requests onSnapshot error:", error);
+        });
+
+        resolveFirebaseReady();
+        console.log("Firebase + Firestore patients connected successfully");
+    }catch(error){
+        rejectFirebaseReady(error);
+        console.error("Firebase initialization error:", error);
+    }
+
+/* =====================================================
+   تثبيت التطبيق PWA
+===================================================== */
+
+let deferredInstallPrompt = null;
+
+
+/*
+   التقاط طلب التثبيت الذي يرسله Chrome
+*/
+
+window.addEventListener(
+    "beforeinstallprompt",
+    function(event){
+
+        event.preventDefault();
+
+        deferredInstallPrompt = event;
+
+        /*
+           إذا كان التطبيق قابلًا للتثبيت
+           نُظهر نافذة التثبيت عند أول دخول
+        */
+
+        showInstallPopup();
+
+    }
+);
+
+
+/* =====================================================
+   إظهار نافذة التثبيت
+===================================================== */
+
+function showInstallPopup(){
+
+    /*
+       إذا سبق للمستخدم أن اختار "لاحقًا"
+       لا نظهرها مرة أخرى مباشرة.
+    */
+
+    const alreadyAsked =
+        localStorage.getItem(
+            "installPopupShown"
+        );
+
+
+    if(alreadyAsked === "true"){
+
+        return;
+
+    }
+
+
+    const modal =
+        document.getElementById(
+            "installModal"
+        );
+
+
+    if(modal){
+
+        modal.classList.add(
+            "show"
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   زر تثبيت التطبيق
+===================================================== */
+
+document.addEventListener(
+    "click",
+    async function(event){
+
+        if(
+            event.target.id !==
+            "installButton"
+        ){
+
+            return;
+
+        }
+
+
+        /*
+           إذا كان Chrome قد أعطانا
+           نافذة التثبيت الرسمية
+        */
+
+        if(
+            deferredInstallPrompt
+        ){
+
+            deferredInstallPrompt.prompt();
+
+
+            const result =
+                await deferredInstallPrompt
+                    .userChoice;
+
+
+            if(
+                result.outcome ===
+                "accepted"
+            ){
+
+                console.log(
+                    "تم تثبيت التطبيق"
+                );
+
+            }
+
+
+            deferredInstallPrompt = null;
+
+
+            closeInstallPopup();
+
+            return;
+
+        }
+
+
+        /*
+           إذا لم تكن نافذة التثبيت
+           متاحة في الوقت الحالي
+        */
+
+        showToast(
+            "افتح التطبيق من Google Chrome ثم اختر إضافة إلى الشاشة الرئيسية",
+            "success"
+        );
+
+    }
+);
+
+
+/* =====================================================
+   زر لاحقًا
+===================================================== */
+
+document.addEventListener(
+    "click",
+    function(event){
+
+        if(
+            event.target.id !==
+            "installLaterButton"
+        ){
+
+            return;
+
+        }
+
+
+        localStorage.setItem(
+            "installPopupShown",
+            "true"
+        );
+
+
+        closeInstallPopup();
+
+    }
+);
+
+
+/* =====================================================
+   إغلاق النافذة
+===================================================== */
+
+function closeInstallPopup(){
+
+    const modal =
+        document.getElementById(
+            "installModal"
+        );
+
+
+    if(modal){
+
+        modal.classList.remove(
+            "show"
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   معرفة هل التطبيق مثبت بالفعل
+===================================================== */
+
+window.addEventListener(
+    "appinstalled",
+    function(){
+
+        localStorage.setItem(
+            "appInstalled",
+            "true"
+        );
+
+
+        localStorage.setItem(
+            "installPopupShown",
+            "true"
+        );
+
+
+        closeInstallPopup();
+
+
+        console.log(
+            "تم تثبيت التطبيق بنجاح"
+        );
+
+    }
+);
+</script>
+  <!-- =====================================================
+     نافذة تثبيت التطبيق
+====================================================== -->
+
+<div id="installModal" class="install-modal">
+
+    <div class="install-box">
+
+        <div class="install-icon">
+            🫀
+        </div>
+
+        <h2>
+            ثبّت التطبيق الآن
+        </h2>
+
+        <p>
+            ثبّت تطبيق الرعاية القلبية الحثيثة
+            وقسطرة القلب على هاتفك لتسهيل
+            الوصول إليه واستخدامه بسرعة.
+        </p>
+
+        <button
+            id="installButton"
+            class="install-main-btn"
+            type="button">
+
+            📲 تثبيت التطبيق
+
+        </button>
+
+        <button
+            id="installLaterButton"
+            class="install-later-btn"
+            type="button">
+
+            لاحقًا
+
+        </button>
+
+    </div>
+
+</div>
+  
+</body>
+
+</html>
