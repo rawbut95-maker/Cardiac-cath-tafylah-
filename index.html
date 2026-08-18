@@ -2556,20 +2556,43 @@ let patientToDelete = null;
 
 
 /* ======================================================
-   قاعدة البيانات المحلية
+/* ======================================================
+   قاعدة بيانات المرضى - Firebase Firestore
 ====================================================== */
 
-function getPatients(){
+const patientsCollection = collection(
+    db,
+    "patients"
+);
+
+
+/* جلب جميع المرضى */
+
+async function getPatients(){
 
     try{
 
-        return JSON.parse(
-            localStorage.getItem(
-                "cardiacPatients"
-            )
-        ) || [];
+        const snapshot =
+            await getDocs(patientsCollection);
+
+        return snapshot.docs.map(
+            document => ({
+                id: document.id,
+                ...document.data()
+            })
+        );
 
     }catch(error){
+
+        console.error(
+            "خطأ في جلب المرضى:",
+            error
+        );
+
+        showToast(
+            "تعذر الاتصال بقاعدة بيانات المرضى",
+            "error"
+        );
 
         return [];
 
@@ -2578,12 +2601,92 @@ function getPatients(){
 }
 
 
-function savePatients(patients){
+/* إضافة مريض جديد */
 
-    localStorage.setItem(
-        "cardiacPatients",
-        JSON.stringify(patients)
-    );
+async function addPatientToFirebase(patient){
+
+    try{
+
+        const docRef =
+            await addDoc(
+                patientsCollection,
+                patient
+            );
+
+        return docRef.id;
+
+    }catch(error){
+
+        console.error(
+            "خطأ في إضافة المريض:",
+            error
+        );
+
+        throw error;
+
+    }
+
+}
+
+
+/* تحديث حالة المريض */
+
+async function updatePatientInFirebase(
+    patientId,
+    data
+){
+
+    try{
+
+        await updateDoc(
+            doc(
+                db,
+                "patients",
+                patientId
+            ),
+            data
+        );
+
+    }catch(error){
+
+        console.error(
+            "خطأ في تحديث المريض:",
+            error
+        );
+
+        throw error;
+
+    }
+
+}
+
+
+/* حذف المريض */
+
+async function deletePatientFromFirebase(
+    patientId
+){
+
+    try{
+
+        await deleteDoc(
+            doc(
+                db,
+                "patients",
+                patientId
+            )
+        );
+
+    }catch(error){
+
+        console.error(
+            "خطأ في حذف المريض:",
+            error
+        );
+
+        throw error;
+
+    }
 
 }
 
