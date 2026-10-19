@@ -1,7 +1,7 @@
 {
-  "name": "الرعاية القلبية الحثيثة وقسطرة القلب - مستشفى الطفيلة الحكومي",
-  "short_name": "الرعاية القلبية",
-  "description": "تطبيق الرعاية القلبية الحثيثة وقسطرة القلب - مستشفى الطفيلة الحكومي",
+  "name": "Marafi travels",
+  "short_name": "marafi travels",
+  "description": "احجز رحلتك بين عمان و الطفيلة بكل سهولة",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#f0f9ff",
